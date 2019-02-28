@@ -2,3 +2,4 @@ config.php
 .env
 composer.phar
 /vendor/
+.idea
