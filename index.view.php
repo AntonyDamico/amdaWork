@@ -11,7 +11,11 @@
 
 <h1>Welcome</h1>
 
-
+<ul>
+<?php foreach ($contacts as $contact): ?>
+    <li><?= $contact->first_name . ' ' . $contact->last_name ?></li>
+<?php endforeach ?>
+</ul>
 
 </body>
 </html>
