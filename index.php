@@ -6,4 +6,4 @@ $config = require 'config.php';
 
 $database = Connection::make($config['database']);
 
-echo 'Everything OK';
+require 'index.view.php';
