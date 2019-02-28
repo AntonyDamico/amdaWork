@@ -1,0 +1,20 @@
+<?php
+
+class Connection
+{
+
+    public static function make(array $config)
+    {
+        try {
+            return new PDO(
+                $config['connection'] . ';dbname=' . $config['name'],
+                $config['username'],
+                $config['password'],
+                $config['options']
+            );
+        } catch (PDOException $exception) {
+            die('could not connect');
+        }
+    }
+
+}
