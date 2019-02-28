@@ -1,13 +1,12 @@
 <?php
 
 require 'database/Connection.php';
+require 'database/QueryBuilder.php';
 
 $config = require 'config.php';
 
-$database = Connection::make($config['database']);
+$database = new QueryBuilder(Connection::make($config['database']));
 
-$statement = $database->prepare('SELECT * FROM contacts');
-$statement->execute();
-$contacts = $statement->fetchAll(PDO::FETCH_CLASS);
+$contacts = $database->selectAll('contacts');
 
 require 'index.view.php';
