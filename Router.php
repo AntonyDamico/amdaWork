@@ -17,10 +17,16 @@ class Router
         $this->routes = $routes;
     }
 
+    /**
+     * @param $uri
+     * @return mixed - The correct controller
+     * @throws Exception - Throws if it does not find the uri
+     */
     public function direct($uri)
     {
-        var_dump($this->routes);
-        echo '<br>';
-        die(var_dump($_SERVER['REQUEST_URI']));
+        if(!array_key_exists($uri, $this->routes)) {
+            throw new Exception('No Route Found');
+        }
+        return $this->routes[$uri];
     }
 }

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    '' => 'controllers/indexController'
+    '' => 'controllers/indexController.php'
 ];
