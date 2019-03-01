@@ -5,7 +5,7 @@ class Router
 
     private $routes;
 
-    public function load($routes)
+    public static function load($routes)
     {
         $router = new static();
         $router->register($routes);
@@ -17,8 +17,10 @@ class Router
         $this->routes = $routes;
     }
 
-    public function resolve()
+    public function direct()
     {
+        var_dump($this->routes);
+        echo '<br>';
         die(var_dump($_SERVER['REQUEST_URI']));
     }
 }

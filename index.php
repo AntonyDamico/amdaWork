@@ -1,7 +1,6 @@
 <?php
 
+
 $database = require 'bootstrap.php';
 
-$contacts = $database->selectAll('contacts');
-
-return view('index');
+Router::load(require 'routes.php')->direct();
