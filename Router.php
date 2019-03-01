@@ -24,7 +24,7 @@ class Router
      */
     public function direct($uri)
     {
-        if(!array_key_exists($uri, $this->routes)) {
+        if (!array_key_exists($uri, $this->routes)) {
             throw new Exception('No Route Found');
         }
         return $this->routes[$uri];
