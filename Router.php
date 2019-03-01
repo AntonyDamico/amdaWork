@@ -17,7 +17,7 @@ class Router
         $this->routes = $routes;
     }
 
-    public function direct()
+    public function direct($uri)
     {
         var_dump($this->routes);
         echo '<br>';
