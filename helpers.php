@@ -3,5 +3,5 @@
 function view($viewName, $data = [])
 {
     extract($data);
-    return require "views/{$viewName}.view.php";
+    return require "app/views/{$viewName}.view.php";
 }

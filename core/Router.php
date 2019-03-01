@@ -49,7 +49,7 @@ class Router
      */
     private function resolveController($controllerName, $method)
     {
-        $controllerClass = "Controllers\\{$controllerName}";
+        $controllerClass = "App\\Controllers\\{$controllerName}";
         $controller = new $controllerClass;
 
         if (!method_exists($controller, $method))
