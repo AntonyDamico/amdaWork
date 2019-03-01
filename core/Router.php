@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Exception;
+
 class Router
 {
 
@@ -41,7 +43,7 @@ class Router
 
     private function resolveController($controllerName, $method)
     {
-        $controllerClass = "controllers\\{$controllerName}";
+        $controllerClass = "Controllers\\{$controllerName}";
         $controller = new $controllerClass;
 
         if (!method_exists($controller, $method))

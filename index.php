@@ -1,13 +1,12 @@
 <?php
 
 require 'vendor/autoload.php';
+require 'core/bootstrap.php';
 
 use Core\{Router, Request};
 
-$database = require 'core/bootstrap.php';
-
 try {
-    require Router::load(require 'routes.php')
+    Router::load(require 'routes.php')
         ->direct(Request::uri());
 } catch (Exception $exception) {
     echo $exception->getMessage();
