@@ -2,5 +2,5 @@
 
 function view($viewName)
 {
-    require "views/{$viewName}.view.php";
+    return require "views/{$viewName}.view.php";
 }
