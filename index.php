@@ -1,6 +1,6 @@
 <?php
 
-$database = require 'bootstrap.php';
+$database = require 'core/bootstrap.php';
 
 $contacts = $database->selectAll('contacts');
 
