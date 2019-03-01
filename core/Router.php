@@ -41,6 +41,12 @@ class Router
         return explode('@', $this->routes[$uri]);
     }
 
+    /**
+     * @param $controllerName
+     * @param $method
+     * @return mixed
+     * @throws Exception
+     */
     private function resolveController($controllerName, $method)
     {
         $controllerClass = "Controllers\\{$controllerName}";
