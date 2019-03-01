@@ -1,11 +1,6 @@
 <?php
 
-require 'database/Connection.php';
-require 'database/QueryBuilder.php';
-
-$config = require 'config.php';
-
-$database = new QueryBuilder(Connection::make($config['database']));
+$database = require 'bootstrap.php';
 
 $contacts = $database->selectAll('contacts');
 
