@@ -2,4 +2,4 @@
 
 $contacts = $database->selectAll('contacts');
 
-return view('index');
+return view('index', compact('contacts'));
