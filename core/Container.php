@@ -2,7 +2,7 @@
 
 namespace Core;
 
-class DIContainer
+class Container
 {
     private static $container = [];
 
@@ -11,7 +11,7 @@ class DIContainer
         static::$container[$key] = $value;
     }
 
-    private static function get($key)
+    public static function get($key)
     {
         return static::$container[$key];
     }

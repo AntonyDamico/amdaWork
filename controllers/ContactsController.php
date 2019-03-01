@@ -2,13 +2,14 @@
 
 namespace Controllers;
 
+use Core\Container;
+
 class ContactsController
 {
 
     public function list()
     {
-//        $contacts = $database->selectAll('contacts');
-        $contacts = ['1', '2'];
+        $contacts = Container::get('database')->selectAll('contacts');
         return view('list', compact('contacts'));
     }
 

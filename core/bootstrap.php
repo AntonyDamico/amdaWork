@@ -2,8 +2,11 @@
 
 require 'helpers.php';
 
+use Core\Container;
 use Core\Database\{Connection, QueryBuilder};
 
-$config = require 'config.php';
+Container::bind('config', require 'config.php');
 
-return new QueryBuilder(Connection::make($config['database']));
+Container::bind('database', new QueryBuilder(
+    Connection::make(Container::get('config')['database']))
+);
