@@ -2,8 +2,4 @@
 
 <h1>Welcome to Contacts</h1>
 
-<ul>
-    <li><a href="">List</a></li>
-</ul>
-
 <?php include 'templates/footer.view.php' ?>

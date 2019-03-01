@@ -8,3 +8,5 @@
     <title>Index</title>
 </head>
 <body>
+
+<?php include 'nav.php' ?>
