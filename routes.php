@@ -1,6 +1,7 @@
 <?php
 
 return [
-    '' => 'controllers/indexController.php',
+//    '' => 'controllers/indexController.php',
+    '' => 'PagesController@home',
     'contacts' => 'controllers/contactsController.php'
 ];
