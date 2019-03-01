@@ -1,10 +1,8 @@
 <?php
 
 require 'helpers.php';
-require 'Router.php';
-require 'Request.php';
-require 'database/Connection.php';
-require 'database/QueryBuilder.php';
+
+use Core\Database\{Connection, QueryBuilder};
 
 $config = require 'config.php';
 

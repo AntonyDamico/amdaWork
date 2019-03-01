@@ -1,5 +1,10 @@
 <?php
 
+namespace Core\Database;
+
+use PDO;
+use PDOException;
+
 class Connection
 {
 

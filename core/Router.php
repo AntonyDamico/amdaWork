@@ -1,6 +1,6 @@
 <?php
 
-require 'controllers\PagesController.php';
+namespace Core;
 
 class Router
 {
@@ -41,7 +41,7 @@ class Router
 
     private function resolveController($controllerName, $method)
     {
-        $controllerClass = "{$controllerName}";
+        $controllerClass = "controllers\\{$controllerName}";
         $controller = new $controllerClass;
 
         if (!method_exists($controller, $method))

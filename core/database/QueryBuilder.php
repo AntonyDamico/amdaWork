@@ -1,5 +1,9 @@
 <?php
 
+namespace Core\Database;
+
+use PDO;
+
 class QueryBuilder
 {
     private $pdo;
