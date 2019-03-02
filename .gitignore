@@ -2,6 +2,7 @@ config.php
 .env
 composer.phar
 /vendor/
+.idea/
 
 # User-specific stuff:
 .idea/workspace.xml
