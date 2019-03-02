@@ -7,7 +7,10 @@ use Exception;
 class Router
 {
 
-    private $routes;
+    public $routes = [
+        'GET' => [],
+        'POST' => []
+    ];
 
     public static function load($routes)
     {
@@ -16,29 +19,43 @@ class Router
         return $router;
     }
 
-    private function register($routes)
+    private function register($methodRoutes)
     {
-        $this->routes = $routes;
+        $this->registerGet($methodRoutes['GET']);
+        $this->registerPost($methodRoutes['POST']);
+    }
+
+    public function registerGet($routes)
+    {
+        foreach ($routes as $uri => $controller)
+            $this->routes['GET'][$uri] = $controller;
+    }
+
+    public function registerPost($routes)
+    {
+        foreach ($routes as $uri => $controller)
+            $this->routes['POST'][$uri] = $controller;
     }
 
     /**
      * @param $uri
+     * @param $method
      * @return mixed - The correct controller
      * @throws Exception - Throws if it does not find the uri
      */
-    public function direct($uri)
+    public function direct($uri, $method)
     {
-        if (!array_key_exists($uri, $this->routes))
+        if (!array_key_exists($uri, $this->routes[$method]))
             throw new Exception('No Route Found');
 
         return $this->resolveController(
-            ...$this->parseRequest($uri)
+            ...$this->parseRequest($uri, $method)
         );
     }
 
-    private function parseRequest($uri)
+    private function parseRequest($uri, $method)
     {
-        return explode('@', $this->routes[$uri]);
+        return explode('@', $this->routes[$method][$uri]);
     }
 
     /**

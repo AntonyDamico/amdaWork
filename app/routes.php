@@ -1,6 +1,20 @@
 <?php
 
+//return [
+//    '' => 'PagesController@home',
+//    'contacts' => 'ContactsController@list'
+//];
+
+
 return [
-    '' => 'PagesController@home',
-    'contacts' => 'ContactsController@list'
+    'GET' => [
+        '' => 'PagesController@home',
+        'contacts' => 'ContactsController@list'
+    ],
+
+    'POST' => [
+
+    ]
 ];
+
+
