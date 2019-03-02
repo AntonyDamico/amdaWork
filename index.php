@@ -7,9 +7,7 @@ use Core\{Router, Request};
 
 try {
     Router::load(require 'app\routes.php')
-        ->direct(Request::uri());
+        ->direct(Request::uri(), Request::method());
 } catch (Exception $exception) {
-//    echo $exception->getMessage();
-//    die('<br>404');
     return view('404', ['message' => $exception->getMessage()]);
 }
