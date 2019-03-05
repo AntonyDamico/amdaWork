@@ -15,4 +15,10 @@ class Contact
             ->selectAll(self::TABLE_NAME);
     }
 
+    public static function getById($id)
+    {
+        return Container::get('database')
+            ->read(self::TABLE_NAME, $id)[0];
+    }
+
 }
