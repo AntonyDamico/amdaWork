@@ -21,7 +21,7 @@ class ContactsController
 
     public function add()
     {
-        return view('contacts/contactsForm');
+        return view('contactsForm');
     }
 
     public function insert()
