@@ -3,29 +3,35 @@
 namespace App\Controllers;
 
 use App\Models\Contact;
+use Core\Container;
 
 class ContactsController
 {
 
-    public function list()
+    public function __call($method, $arguments)
     {
-        session_start();
+        Container::get('auth')->ifNotAuthenticatedRedirect('login');
+        return $this->$method($arguments);
+    }
+    
+    protected function list()
+    {
         $contacts = Contact::getAll();
         return view('list', compact('contacts'));
     }
 
-    public function read()
+    protected function read()
     {
         $contact = Contact::getById($_GET['id']);
         return view('contact', compact('contact'));
     }
 
-    public function add()
+    protected function add()
     {
         return view('contacts/contactsForm');
     }
 
-    public function insert()
+    protected function insert()
     {
         Contact::insert($_POST['firstName'], $_POST['lastName']);
         redirect('contacts');

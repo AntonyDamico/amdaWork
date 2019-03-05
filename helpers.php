@@ -15,3 +15,10 @@ function redirect($path)
 {
     header("Location: /${path}");
 }
+
+function session($key, $value = null)
+{
+    if(!isset($_SESSION)) session_start();
+    if($value != null) $_SESSION[$key] = $value;
+    return $_SESSION[$key];
+}

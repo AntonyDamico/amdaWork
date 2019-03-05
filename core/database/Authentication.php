@@ -65,4 +65,9 @@ class Authentication
         return $user;
     }
 
+    public function ifNotAuthenticatedRedirect($path)
+    {
+        if (!session('userId')) redirect($path);
+    }
+
 }
