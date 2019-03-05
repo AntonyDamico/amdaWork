@@ -3,16 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Contact;
-use Core\Container;
 
-class ContactsController
+class ContactsController extends RequiredAuthenticationController
 {
-
-    public function __call($method, $arguments)
-    {
-        Container::get('auth')->ifNotAuthenticatedRedirect('login');
-        return $this->$method($arguments);
-    }
 
     protected function list()
     {
