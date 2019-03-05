@@ -9,6 +9,8 @@
     <input type="email" name="email" id="email">
     <label for="password">Password:</label>
     <input type="password" name="password" id="password">
+
+    <input type="submit" value="Login">
 </form>
 
 <?php include 'templates/footer.view.php' ?>

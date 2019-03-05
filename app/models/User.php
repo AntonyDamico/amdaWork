@@ -12,4 +12,10 @@ class User
         return Container::get('auth')
             ->register($email, $password, $passwordConfirm);
     }
+
+    public static function login($email, $password)
+    {
+        return Container::get('auth')
+            ->login($email, $password);
+    }
 }

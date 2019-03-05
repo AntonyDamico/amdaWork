@@ -11,6 +11,7 @@ return [
     ],
 
     'POST' => [
+        'login' => 'AuthController@login',
         'register' => 'AuthController@register',
         'contacts/add' => 'ContactsController@insert'
     ]

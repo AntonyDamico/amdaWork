@@ -32,4 +32,17 @@ class AuthController
         }
     }
 
+    public function login()
+    {
+        try {
+            $user = User::login(
+                $_POST['email'],
+                $_POST['password']
+            );
+            $_SESSION['userId'] = $user->id;
+            redirect('contacts');
+        } catch (Exception $e) {
+            return view('/login', ['msg' => $e->getMessage()]);
+        }
+    }
 }

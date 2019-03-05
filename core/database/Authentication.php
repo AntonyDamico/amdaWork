@@ -31,11 +31,11 @@ class Authentication
         if ($password != $confirmPassword)
             throw new Exception('The passwords are not the same');
 
-        if (!empty($this->getEmail($email)))
+        if (!empty($this->getByEmail($email)))
             throw new Exception('The email is taken');
     }
 
-    public function getEmail($email)
+    public function getByEmail($email)
     {
         return Container::get('database')
             ->readByField($this->TABLE_NAME, ['email' => $email]);
@@ -52,5 +52,17 @@ class Authentication
             ->insert($this->TABLE_NAME, $params);
     }
 
+    public function login($email, $password)
+    {
+        $user = $this->getByEmail($email)[0];
+
+        if(!$user)
+            throw new Exception('The email is not registered');
+
+        if(!password_verify($password, $user->password))
+            throw new Exception('Incorrect Password');
+
+        return $user;
+    }
 
 }
