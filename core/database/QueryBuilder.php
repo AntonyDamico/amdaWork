@@ -35,6 +35,21 @@ class QueryBuilder
         }
     }
 
+    public function readByField($tableName, $arrValue)
+    {
+        $query = "SELECT * FROM ${tableName} WHERE " .
+            array_key_first($arrValue) . " = ?";
+
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->execute([reset($arrValue)]);
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            echo 'Something went wrong';
+            die($e->getMessage());
+        }
+    }
+
     public function insert($tableName, $params)
     {
         $query =
