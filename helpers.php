@@ -10,3 +10,8 @@ function dd($data)
 {
     die(var_dump($data));
 }
+
+function redirect($path)
+{
+    header("Location: /${path}");
+}
