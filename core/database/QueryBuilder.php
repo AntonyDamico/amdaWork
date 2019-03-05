@@ -35,4 +35,20 @@ class QueryBuilder
         }
     }
 
+    public function insert($tableName, $params)
+    {
+        $query =
+            "insert into ${tableName} 
+            (" . implode(',', array_keys($params)) . ") values (:" .
+            implode(', :', array_keys($params)) . ")";
+
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->execute($params);
+        } catch (Exception $exception) {
+            echo 'Can not insert element<br>';
+            die($exception->getMessage());
+        }
+    }
+
 }
