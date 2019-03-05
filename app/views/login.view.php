@@ -1,5 +1,7 @@
 <?php include 'templates/header.view.php' ?>
 
+<?php if(isset($msg)) echo $msg ?>
+
 <h2>Log In</h2>
 
 <form action="" method="POST">
