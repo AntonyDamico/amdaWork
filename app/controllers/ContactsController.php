@@ -13,4 +13,9 @@ class ContactsController
         return view('list', compact('contacts'));
     }
 
+    public function add()
+    {
+        return view('contacts/contactsForm');
+    }
+
 }
