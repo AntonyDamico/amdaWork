@@ -13,4 +13,10 @@ class ContactsController
         return view('list', compact('contacts'));
     }
 
+    public function read()
+    {
+        $contact = Contact::getById($_GET['id']);
+        return view('contact', compact('contact'));
+    }
+
 }
