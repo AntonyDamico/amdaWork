@@ -18,4 +18,10 @@ class ContactsController
         return view('contacts/contactsForm');
     }
 
+    public function insert()
+    {
+        Contact::insert($_POST['firstName'], $_POST['lastName']);
+        redirect('contacts');
+    }
+
 }

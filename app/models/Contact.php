@@ -15,4 +15,15 @@ class Contact
             ->selectAll(self::TABLE_NAME);
     }
 
+    public static function insert($firstName, $lastName)
+    {
+        $data = [
+            'first_name' => $firstName,
+            'last_name' => $lastName
+        ];
+
+        Container::get('database')
+            ->insert(self::TABLE_NAME, $data);
+    }
+
 }

@@ -8,7 +8,7 @@ return [
     ],
 
     'POST' => [
-
+        'contacts/add' => 'ContactsController@insert'
     ]
 ];
 
