@@ -5,6 +5,7 @@ return [
         '' => 'PagesController@home',
         'login' => 'AuthController@loginForm',
         'register' => 'AuthController@registerForm',
+        'logout' => 'AuthController@logout',
         'contacts' => 'ContactsController@list',
         'contacts/read' => 'ContactsController@read',
         'contacts/add' => 'ContactsController@add'

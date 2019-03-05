@@ -39,10 +39,18 @@ class AuthController
                 $_POST['email'],
                 $_POST['password']
             );
+            session_start();
             $_SESSION['userId'] = $user->id;
             redirect('contacts');
         } catch (Exception $e) {
             return view('/login', ['msg' => $e->getMessage()]);
         }
+    }
+
+    public function logout()
+    {
+        session_start();
+        if (isset($_SESSION['userId'])) unset($_SESSION['userId']);
+        redirect('login');
     }
 }

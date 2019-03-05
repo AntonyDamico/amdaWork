@@ -9,6 +9,7 @@ class ContactsController
 
     public function list()
     {
+        session_start();
         $contacts = Contact::getAll();
         return view('list', compact('contacts'));
     }
