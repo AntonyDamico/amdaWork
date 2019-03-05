@@ -7,12 +7,10 @@ use Core\Container;
 
 class Authentication
 {
-    private $pdo;
     private $TABLE_NAME;
 
-    public function __construct($pdo)
+    public function __construct()
     {
-        $this->pdo = $pdo;
         $this->TABLE_NAME = Container::get('config')['auth']['tableName'];
     }
 

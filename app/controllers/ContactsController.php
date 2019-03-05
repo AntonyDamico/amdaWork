@@ -13,7 +13,7 @@ class ContactsController
         Container::get('auth')->ifNotAuthenticatedRedirect('login');
         return $this->$method($arguments);
     }
-    
+
     protected function list()
     {
         $contacts = Contact::getAll();
